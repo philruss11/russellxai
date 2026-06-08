@@ -35,27 +35,100 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---------- home: centered fade-deck (slides fade out / next fades in) ---------- */
-  var homeSlides = document.body.classList.contains("is-home")
-    ? Array.prototype.slice.call(document.querySelectorAll(".is-home > .hero, .is-home > section"))
-    : [];
-  function fadeDeck() {
-    if (reduceMotion || !homeSlides.length) return;
-    var vp = window.innerHeight, center = vp / 2;
-    for (var i = 0; i < homeSlides.length; i++) {
-      var s = homeSlides[i], r = s.getBoundingClientRect();
-      var dist = (r.bottom < center) ? (center - r.bottom) : (r.top > center ? r.top - center : 0);
-      var fade = 1 - Math.min(1, dist / (vp * 0.55));
-      s.style.opacity = (0.06 + 0.94 * fade).toFixed(3);
-      var dir = (r.top + r.height / 2) > center ? 1 : -1;
-      s.style.transform = "translateY(" + ((1 - fade) * 30 * dir).toFixed(1) + "px)";
+  /* ---------- character-by-character heading ---------- */
+  document.querySelectorAll(".char-head").forEach(function (head) {
+    var chars = [];
+    (function walk(node) {
+      Array.prototype.slice.call(node.childNodes).forEach(function (child) {
+        if (child.nodeType === 3) {
+          var frag = document.createDocumentFragment();
+          var cw = null;
+          child.nodeValue.split("").forEach(function (c) {
+            if (/\s/.test(c)) { cw = null; frag.appendChild(document.createTextNode(" ")); return; }
+            if (!cw) { cw = document.createElement("span"); cw.className = "word"; frag.appendChild(cw); }
+            var s = document.createElement("span");
+            s.className = "ch";
+            s.textContent = c === " " ? " " : c;
+            chars.push(s);
+            cw.appendChild(s);
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1) {
+          walk(child);
+        }
+      });
+    })(head);
+    if (reduceMotion) { chars.forEach(function (s) { s.classList.add("in"); }); return; }
+    var start = function () {
+      chars.forEach(function (s, i) { setTimeout(function () { s.classList.add("in"); }, 140 + i * 26); });
+    };
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { start(); io.disconnect(); }
+      }, { threshold: 0.15 });
+      io.observe(head);
+    } else { start(); }
+  });
+
+  /* ---------- magnetic buttons ---------- */
+  if (!reduceMotion) {
+    document.querySelectorAll(".magnetic").forEach(function (m) {
+      var strength = 0.35;
+      m.addEventListener("pointermove", function (e) {
+        var r = m.getBoundingClientRect();
+        var dx = e.clientX - (r.left + r.width / 2);
+        var dy = e.clientY - (r.top + r.height / 2);
+        m.style.transition = "";
+        m.style.transform = "translate3d(" + (dx * strength).toFixed(1) + "px," + (dy * strength).toFixed(1) + "px,0)";
+      });
+      m.addEventListener("pointerleave", function () {
+        m.style.transition = "transform .5s ease-out";
+        m.style.transform = "translate3d(0,0,0)";
+      });
+    });
+  }
+
+  /* ---------- scroll-driven marquee ---------- */
+  (function () {
+    var sec = document.getElementById("marquee");
+    var r1 = document.getElementById("mrow1");
+    var r2 = document.getElementById("mrow2");
+    if (!sec || !r1 || !r2) return;
+    [r1, r2].forEach(function (row) { row.innerHTML = row.innerHTML + row.innerHTML + row.innerHTML; });
+    function onM() {
+      var top = sec.getBoundingClientRect().top + window.pageYOffset;
+      var offset = (window.pageYOffset - top + window.innerHeight) * 0.3;
+      r1.style.transform = "translateX(" + (offset - 520).toFixed(1) + "px)";
+      r2.style.transform = "translateX(" + (-offset - 520).toFixed(1) + "px)";
     }
-  }
-  if (homeSlides.length && !reduceMotion) {
-    window.addEventListener("scroll", fadeDeck, { passive: true });
-    window.addEventListener("resize", fadeDeck);
-    fadeDeck();
-  }
+    window.addEventListener("scroll", onM, { passive: true });
+    window.addEventListener("resize", onM);
+    onM();
+  })();
+
+  /* ---------- sticky-stacking cards (scale on scroll) ---------- */
+  (function () {
+    var stack = document.getElementById("stack");
+    if (!stack || reduceMotion) return;
+    var items = Array.prototype.slice.call(stack.querySelectorAll(".stack__item"));
+    var panels = items.map(function (it) { return it.querySelector(".panel"); });
+    var topPin = 104;
+    function onS() {
+      var vh = window.innerHeight;
+      for (var i = 0; i < items.length; i++) {
+        var next = items[i + 1], panel = panels[i];
+        if (!panel) continue;
+        if (!next) { panel.style.transform = ""; panel.style.opacity = ""; continue; }
+        var nt = next.getBoundingClientRect().top;
+        var p = Math.max(0, Math.min(1, (vh - nt) / (vh - topPin)));
+        panel.style.transform = "scale(" + (1 - p * 0.09).toFixed(3) + ")";
+        panel.style.opacity = (1 - p * 0.4).toFixed(3);
+      }
+    }
+    window.addEventListener("scroll", onS, { passive: true });
+    window.addEventListener("resize", onS);
+    onS();
+  })();
 
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("navToggle");
