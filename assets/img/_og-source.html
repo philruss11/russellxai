@@ -1,0 +1,49 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+  html,body{margin:0;padding:0}
+  .og{width:1200px;height:630px;position:relative;overflow:hidden;
+    background:radial-gradient(120% 130% at 82% 0%,#27543c 0%,#16291f 45%,#0f1d16 100%);
+    font-family:Georgia,'Times New Roman',serif;color:#F6F1E6}
+  .grid{position:absolute;inset:0;opacity:.10;
+    background-image:linear-gradient(#cdbb7e 1px,transparent 1px),linear-gradient(90deg,#cdbb7e 1px,transparent 1px);
+    background-size:54px 54px}
+  .glow{position:absolute;width:560px;height:560px;left:-120px;top:-160px;border-radius:50%;
+    background:radial-gradient(circle,rgba(231,201,122,.18),transparent 70%)}
+  .wrap{position:absolute;inset:0;padding:78px 86px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between}
+  .loc{font-family:'Segoe UI',sans-serif;font-size:20px;letter-spacing:.22em;text-transform:uppercase;color:#e7c97a;
+    border:1px solid rgba(231,201,122,.4);border-radius:999px;padding:11px 22px;display:inline-flex;align-items:center;gap:12px;align-self:flex-start}
+  .loc .dot{width:11px;height:11px;border-radius:50%;background:#e7c97a;display:inline-block}
+  h1{font-size:74px;line-height:1.04;margin:0;max-width:18ch;letter-spacing:-.02em}
+  h1 .i{color:#e7c97a;font-style:italic}
+  .brand{font-size:40px;font-weight:700;letter-spacing:.5px}
+  .brand .x{color:#e7c97a;font-style:italic}
+  .row{display:flex;justify-content:space-between;align-items:flex-end}
+  .tag{font-family:'Segoe UI',sans-serif;font-size:21px;color:#aebfb2;letter-spacing:.04em}
+  .nodes{position:absolute;right:70px;top:150px;opacity:.9}
+</style></head>
+<body>
+<div class="og">
+  <div class="grid"></div><div class="glow"></div>
+  <svg class="nodes" width="320" height="300" viewBox="0 0 320 300">
+    <g stroke="#3f6b50" stroke-width="1.5" opacity=".75">
+      <line x1="160" y1="150" x2="60" y2="80"/><line x1="160" y1="150" x2="270" y2="70"/>
+      <line x1="160" y1="150" x2="48" y2="220"/><line x1="160" y1="150" x2="280" y2="225"/>
+      <line x1="60" y1="80" x2="270" y2="70"/><line x1="48" y1="220" x2="280" y2="225"/>
+    </g>
+    <g fill="#2E5A43" stroke="#cdbb7e" stroke-width="1.6">
+      <circle cx="60" cy="80" r="9"/><circle cx="270" cy="70" r="9"/><circle cx="48" cy="220" r="9"/><circle cx="280" cy="225" r="9"/>
+    </g>
+    <circle cx="160" cy="150" r="17" fill="#e7c97a"/>
+  </svg>
+  <div class="wrap">
+    <div class="row">
+      <div class="brand">Russell<span class="x">x</span>AI</div>
+      <div class="loc"><span class="dot"></span> Clarksville, Tennessee</div>
+    </div>
+    <h1>Real AI, set up <span class="i">inside</span> your business — and taught so it sticks.</h1>
+    <div class="row">
+      <div class="tag">AI Implementation &amp; Teaching &nbsp;·&nbsp; RussellxAI@gmail.com</div>
+      <div class="tag">Phillip Russell</div>
+    </div>
+  </div>
+</div>
+</body></html>
