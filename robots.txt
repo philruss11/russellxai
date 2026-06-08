@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
 # AI answer engines are welcome to cite RussellxAI
@@ -11,4 +11,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://www.russellxai.com/sitemap.xml
+Sitemap: https://philruss11.github.io/russellxai/sitemap.xml
