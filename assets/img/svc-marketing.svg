@@ -1,19 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Found on Google with local SEO and a rising chart">
-  <rect x="28" y="40" width="344" height="220" rx="14" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
-  <rect x="52" y="62" width="296" height="30" rx="15" fill="#1c1e26" stroke="#2a2c34"/>
-  <circle cx="72" cy="77" r="6" fill="none" stroke="#ff2233" stroke-width="2.4"/><line x1="76" y1="81" x2="82" y2="87" stroke="#ff2233" stroke-width="2.4" stroke-linecap="round"/>
-  <text x="92" y="81" font-family="Segoe UI, sans-serif" font-size="11" fill="#878a95">ai help for my business near Clarksville</text>
-  <g transform="translate(60,112)">
-    <path d="M26 0 C12 0 1 11 1 25 C1 44 26 64 26 64 C26 64 51 44 51 25 C51 11 40 0 26 0 Z" fill="#ff2233"/>
-    <circle cx="26" cy="25" r="11" fill="#15161c"/>
-    <text x="26" y="30" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="800" fill="#ff4d5b">1</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Your business lifted to the top of a pile of other businesses">
+  <rect x="24" y="36" width="352" height="228" rx="16" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
+  <line x1="56" y1="232" x2="344" y2="232" stroke="#2a2c34" stroke-width="1.5"/>
+
+  <!-- the pile of other businesses (grey, jumbled) -->
+  <g>
+    <g transform="rotate(-6 96 200)"><rect x="64" y="172" width="64" height="60" rx="3" fill="#202229"/><rect x="74" y="184" width="12" height="12" fill="#2f323b"/><rect x="94" y="184" width="12" height="12" fill="#2f323b"/><rect x="84" y="206" width="14" height="26" fill="#2f323b"/></g>
+    <g transform="rotate(7 290 198)"><rect x="256" y="168" width="62" height="64" rx="3" fill="#202229"/><rect x="266" y="180" width="12" height="12" fill="#2f323b"/><rect x="286" y="180" width="12" height="12" fill="#2f323b"/><rect x="276" y="204" width="14" height="28" fill="#2f323b"/></g>
+    <g transform="rotate(-3 214 196)"><rect x="186" y="158" width="60" height="74" rx="3" fill="#262931"/><rect x="196" y="172" width="12" height="12" fill="#363a44"/><rect x="216" y="172" width="12" height="12" fill="#363a44"/><rect x="196" y="194" width="12" height="12" fill="#363a44"/><rect x="208" y="210" width="16" height="22" fill="#363a44"/></g>
+    <rect x="120" y="150" width="58" height="82" rx="3" fill="#2a2c34"/><rect x="131" y="164" width="12" height="12" fill="#3a3d47"/><rect x="151" y="164" width="12" height="12" fill="#3a3d47"/><rect x="131" y="186" width="12" height="12" fill="#3a3d47"/><rect x="142" y="210" width="16" height="22" fill="#3a3d47"/>
   </g>
-  <g font-family="Segoe UI, sans-serif" font-size="10" fill="#878a95">
-    <rect x="140" y="112" width="208" height="20" rx="5" fill="#1c1e26" stroke="#2a2c34"/><text x="150" y="126" fill="#edeef2">RussellxAI — #1 local result ★★★★★</text>
-    <rect x="140" y="138" width="208" height="16" rx="5" fill="#1c1e26" stroke="#2a2c34"/>
-    <rect x="140" y="160" width="208" height="16" rx="5" fill="#1c1e26" stroke="#2a2c34"/>
+
+  <!-- your business, on top -->
+  <g>
+    <rect x="166" y="92" width="68" height="64" rx="3" fill="#ff2233"/>
+    <rect x="166" y="92" width="68" height="9" fill="#ff4d5b"/>
+    <rect x="178" y="110" width="13" height="13" fill="#15161c"/>
+    <rect x="209" y="110" width="13" height="13" fill="#15161c"/>
+    <rect x="192" y="132" width="16" height="24" fill="#15161c"/>
   </g>
-  <polyline points="60,236 110,224 160,228 210,206 260,196 310,168 348,150" fill="none" stroke="#ff2233" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-  <polygon points="348,150 348,240 60,240 60,236 110,224 160,228 210,206 260,196 310,168" fill="#ff2233" opacity="0.12"/>
-  <g fill="#ff4d5b" stroke="#ff2233" stroke-width="1.5"><circle cx="210" cy="206" r="3.5"/><circle cx="310" cy="168" r="3.5"/><circle cx="348" cy="150" r="3.5"/></g>
+
+  <!-- banner -->
+  <g>
+    <rect x="116" y="50" width="168" height="28" rx="6" fill="#ff2233"/>
+    <polygon points="190,78 210,78 200,90" fill="#ff2233"/>
+    <text x="200" y="69" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700" fill="#ffffff" letter-spacing="1">YOUR BUSINESS</text>
+  </g>
+
+  <!-- rank #1 + rising arrow -->
+  <g>
+    <circle cx="304" cy="108" r="15" fill="#15161c" stroke="#ff2233" stroke-width="1.6"/>
+    <text x="304" y="113" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="800" fill="#ff4d5b">1</text>
+  </g>
+  <path d="M86 156 V120 M86 120 L80 128 M86 120 L92 128" fill="none" stroke="#ff2233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

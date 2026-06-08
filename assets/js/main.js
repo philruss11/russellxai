@@ -35,6 +35,28 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
+  /* ---------- home: centered fade-deck (slides fade out / next fades in) ---------- */
+  var homeSlides = document.body.classList.contains("is-home")
+    ? Array.prototype.slice.call(document.querySelectorAll(".is-home > .hero, .is-home > section"))
+    : [];
+  function fadeDeck() {
+    if (reduceMotion || !homeSlides.length) return;
+    var vp = window.innerHeight, center = vp / 2;
+    for (var i = 0; i < homeSlides.length; i++) {
+      var s = homeSlides[i], r = s.getBoundingClientRect();
+      var dist = (r.bottom < center) ? (center - r.bottom) : (r.top > center ? r.top - center : 0);
+      var fade = 1 - Math.min(1, dist / (vp * 0.55));
+      s.style.opacity = (0.06 + 0.94 * fade).toFixed(3);
+      var dir = (r.top + r.height / 2) > center ? 1 : -1;
+      s.style.transform = "translateY(" + ((1 - fade) * 30 * dir).toFixed(1) + "px)";
+    }
+  }
+  if (homeSlides.length && !reduceMotion) {
+    window.addEventListener("scroll", fadeDeck, { passive: true });
+    window.addEventListener("resize", fadeDeck);
+    fadeDeck();
+  }
+
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("navToggle");
   if (toggle && nav) {

@@ -1,21 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Advisory and special projects, researched and built">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="A robot hand shaking a human hand">
   <rect x="24" y="36" width="352" height="228" rx="16" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
-  <g transform="translate(150,70)">
-    <circle cx="50" cy="56" r="46" fill="#1c1e26" stroke="#2a2c34" stroke-width="2"/>
-    <path d="M50 18 a38 38 0 0 1 24 67 c-6 5 -8 10 -8 17 h-32 c0 -7 -2 -12 -8 -17 a38 38 0 0 1 24 -67 Z" fill="#ff2233"/>
-    <path d="M50 28 a28 28 0 0 0 -16 50" fill="none" stroke="#ff8089" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-    <rect x="34" y="104" width="32" height="9" rx="3" fill="#0e0f14"/>
-    <rect x="38" y="116" width="24" height="8" rx="3" fill="#3a3d47"/>
-    <path d="M42 70 q8 -12 16 0" fill="none" stroke="#7c1119" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- red glow at the clasp -->
+  <ellipse cx="200" cy="150" rx="70" ry="46" fill="#ff2233" opacity="0.12"/>
+
+  <!-- HUMAN side (left): smooth, warm off-white -->
+  <g>
+    <!-- sleeve / forearm -->
+    <path d="M40 196 L120 150 L150 168 L78 230 Q60 240 48 226 Z" fill="#23252f"/>
+    <path d="M40 196 L120 150 L150 168" fill="none" stroke="#3a3d47" stroke-width="1.5"/>
+    <!-- hand: palm + fingers curling right -->
+    <path d="M118 150 q42 -8 70 16 q8 7 6 17" fill="none" stroke="#d7dae1" stroke-width="20" stroke-linecap="round"/>
+    <!-- thumb -->
+    <path d="M150 130 q26 2 34 22" fill="none" stroke="#d7dae1" stroke-width="13" stroke-linecap="round"/>
+    <!-- knuckle highlights -->
+    <g stroke="#aeb2bd" stroke-width="2" stroke-linecap="round" opacity="0.7">
+      <line x1="176" y1="150" x2="180" y2="158"/><line x1="158" y1="146" x2="161" y2="155"/>
+    </g>
   </g>
-  <g stroke="#ff4d5b" stroke-width="3" stroke-linecap="round">
-    <line x1="200" y1="44" x2="200" y2="30"/>
-    <line x1="128" y1="74" x2="116" y2="64"/><line x1="272" y1="74" x2="284" y2="64"/>
-    <line x1="112" y1="126" x2="96" y2="124"/><line x1="288" y1="126" x2="304" y2="124"/>
+
+  <!-- ROBOT side (right): segmented steel, red joints -->
+  <g>
+    <!-- sleeve / forearm, segmented -->
+    <path d="M360 196 L280 150 L250 168 L322 230 Q340 240 352 226 Z" fill="#1c1e26"/>
+    <g stroke="#3a3d47" stroke-width="1.5"><line x1="300" y1="178" x2="334" y2="208"/><line x1="284" y1="190" x2="318" y2="220"/></g>
+    <!-- mechanical hand: palm + segmented fingers curling left -->
+    <path d="M282 150 q-42 -8 -70 16 q-8 7 -6 17" fill="none" stroke="#3a3d47" stroke-width="20" stroke-linecap="round"/>
+    <path d="M282 150 q-42 -8 -70 16 q-8 7 -6 17" fill="none" stroke="#23252f" stroke-width="20" stroke-linecap="round" stroke-dasharray="2 12"/>
+    <!-- thumb -->
+    <path d="M250 130 q-26 2 -34 22" fill="none" stroke="#3a3d47" stroke-width="13" stroke-linecap="round"/>
+    <!-- red joints -->
+    <g fill="#ff2233">
+      <circle cx="248" cy="158" r="3.4"/><circle cx="226" cy="160" r="3.4"/><circle cx="212" cy="166" r="3.4"/><circle cx="232" cy="138" r="3"/>
+    </g>
+    <!-- wrist bolt -->
+    <circle cx="290" cy="150" r="4" fill="#15161c" stroke="#ff2233" stroke-width="1.5"/>
   </g>
-  <g transform="translate(250,196)" fill="#3a3d47">
-    <path d="M30 12 l5 0 l3 8 l8 3 l8 -3 l4 4 l-3 8 l3 8 l-4 4 l-8 -3 l-8 3 l-3 8 l-5 0 l-3 -8 l-8 -3 l-8 3 l-4 -4 l3 -8 l-3 -8 l4 -4 l8 3 l8 -3 z" transform="translate(-2,-2) scale(0.9)"/>
-    <circle cx="28" cy="28" r="9" fill="#15161c"/>
-  </g>
-  <text x="118" y="244" font-family="Segoe UI, sans-serif" font-size="13" fill="#c7cad3">Tell me what you want. I research it, then build it.</text>
+
+  <!-- clasp seam -->
+  <path d="M200 132 V176" stroke="#0e0f14" stroke-width="2" opacity="0.5"/>
+  <text x="200" y="250" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#878a95">You bring the idea. I build it.</text>
 </svg>

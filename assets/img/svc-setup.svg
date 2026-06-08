@@ -1,21 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Set up in your own account and taught hands-on">
-  <rect x="48" y="48" width="252" height="160" rx="12" fill="#0e0f14" stroke="#2a2c34" stroke-width="2"/>
-  <rect x="60" y="60" width="228" height="120" rx="6" fill="#15161c"/>
-  <rect x="140" y="208" width="68" height="14" fill="#0e0f14"/>
-  <rect x="112" y="222" width="124" height="10" rx="5" fill="#0e0f14"/>
-  <text x="74" y="82" font-family="Segoe UI, sans-serif" font-size="9" fill="#878a95">YOUR ACCOUNT · APPROVAL ON</text>
-  <g stroke="#2a2c34" stroke-width="2" stroke-linecap="round">
-    <line x1="74" y1="98" x2="274" y2="98"/><line x1="74" y1="114" x2="240" y2="114"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="A graduation cap">
+  <rect x="24" y="36" width="352" height="228" rx="16" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
+  <ellipse cx="200" cy="226" rx="92" ry="12" fill="#000" opacity="0.25"/>
+  <!-- cap base (head band) -->
+  <path d="M166 150 q34 26 68 0 v20 q-34 30 -68 0 Z" fill="#3a3d47"/>
+  <path d="M166 150 q34 26 68 0" fill="none" stroke="#4a4d57" stroke-width="1.5"/>
+  <!-- mortarboard -->
+  <polygon points="200,96 300,140 200,184 100,140" fill="#e7e3da"/>
+  <polygon points="200,96 300,140 200,184 100,140" fill="none" stroke="#b9bcc4" stroke-width="1.5"/>
+  <polygon points="200,108 270,140 200,172 130,140" fill="#d2d5dd" opacity="0.5"/>
+  <!-- button -->
+  <circle cx="200" cy="140" r="6" fill="#2a2c34"/>
+  <circle cx="200" cy="140" r="6" fill="none" stroke="#ff2233" stroke-width="1.4"/>
+  <!-- tassel -->
+  <path d="M200 140 L268 150 L272 196" fill="none" stroke="#ff2233" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="268" cy="150" r="3" fill="#ff4d5b"/>
+  <path d="M266 196 q6 0 12 0" stroke="#ff2233" stroke-width="2" stroke-linecap="round"/>
+  <g stroke="#ff2233" stroke-width="2" stroke-linecap="round">
+    <line x1="268" y1="198" x2="266" y2="214"/><line x1="272" y1="198" x2="272" y2="216"/><line x1="276" y1="198" x2="278" y2="214"/>
   </g>
-  <rect x="74" y="132" width="86" height="30" rx="8" fill="#ff2233"/>
-  <text x="117" y="151" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#ffffff">Approve</text>
-  <rect x="170" y="132" width="76" height="30" rx="8" fill="#1c1e26" stroke="#2a2c34"/>
-  <text x="208" y="151" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#878a95">Edit</text>
-  <g transform="translate(286,150)">
-    <circle cx="40" cy="40" r="44" fill="#0e0f14" stroke="#2a2c34" stroke-width="2"/>
-    <path d="M40 22 L70 34 L40 46 L10 34 Z" fill="#ff2233"/>
-    <path d="M22 39 L22 54 C22 60 58 60 58 54 L58 39" fill="none" stroke="#ff4d5b" stroke-width="3"/>
-    <line x1="70" y1="34" x2="70" y2="52" stroke="#ff4d5b" stroke-width="3" stroke-linecap="round"/>
-    <circle cx="70" cy="55" r="3.5" fill="#ff4d5b"/>
-  </g>
+  <circle cx="272" cy="196" r="3.5" fill="#ff2233"/>
 </svg>
