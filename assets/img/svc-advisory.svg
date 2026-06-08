@@ -1,25 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="Advisory and special projects, researched and built">
-  <rect x="24" y="36" width="352" height="228" rx="16" fill="#FBF8F1" stroke="#e0d8c6" stroke-width="2"/>
-  <!-- lightbulb -->
+  <rect x="24" y="36" width="352" height="228" rx="16" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
   <g transform="translate(150,70)">
-    <circle cx="50" cy="56" r="46" fill="#fbf3da" stroke="#e0d8c6" stroke-width="2"/>
-    <path d="M50 18 a38 38 0 0 1 24 67 c-6 5 -8 10 -8 17 h-32 c0 -7 -2 -12 -8 -17 a38 38 0 0 1 24 -67 Z" fill="#e7c97a"/>
-    <path d="M50 28 a28 28 0 0 0 -16 50" fill="none" stroke="#fbf8f1" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
-    <rect x="34" y="104" width="32" height="9" rx="3" fill="#1E3D2F"/>
-    <rect x="38" y="116" width="24" height="8" rx="3" fill="#2E5A43"/>
-    <!-- filament -->
-    <path d="M42 70 q8 -12 16 0" fill="none" stroke="#9c7c2b" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="50" cy="56" r="46" fill="#1c1e26" stroke="#2a2c34" stroke-width="2"/>
+    <path d="M50 18 a38 38 0 0 1 24 67 c-6 5 -8 10 -8 17 h-32 c0 -7 -2 -12 -8 -17 a38 38 0 0 1 24 -67 Z" fill="#ff2233"/>
+    <path d="M50 28 a28 28 0 0 0 -16 50" fill="none" stroke="#ff8089" stroke-width="3" stroke-linecap="round" opacity="0.7"/>
+    <rect x="34" y="104" width="32" height="9" rx="3" fill="#0e0f14"/>
+    <rect x="38" y="116" width="24" height="8" rx="3" fill="#3a3d47"/>
+    <path d="M42 70 q8 -12 16 0" fill="none" stroke="#7c1119" stroke-width="2.5" stroke-linecap="round"/>
   </g>
-  <!-- rays -->
-  <g stroke="#cdbb7e" stroke-width="3" stroke-linecap="round">
+  <g stroke="#ff4d5b" stroke-width="3" stroke-linecap="round">
     <line x1="200" y1="44" x2="200" y2="30"/>
     <line x1="128" y1="74" x2="116" y2="64"/><line x1="272" y1="74" x2="284" y2="64"/>
     <line x1="112" y1="126" x2="96" y2="124"/><line x1="288" y1="126" x2="304" y2="124"/>
   </g>
-  <!-- gears -->
-  <g transform="translate(250,196)" fill="#1E3D2F">
+  <g transform="translate(250,196)" fill="#3a3d47">
     <path d="M30 12 l5 0 l3 8 l8 3 l8 -3 l4 4 l-3 8 l3 8 l-4 4 l-8 -3 l-8 3 l-3 8 l-5 0 l-3 -8 l-8 -3 l-8 3 l-4 -4 l3 -8 l-3 -8 l4 -4 l8 3 l8 -3 z" transform="translate(-2,-2) scale(0.9)"/>
-    <circle cx="28" cy="28" r="9" fill="#FBF8F1"/>
+    <circle cx="28" cy="28" r="9" fill="#15161c"/>
   </g>
-  <text x="118" y="244" font-family="Georgia, serif" font-size="13" fill="#1E3D2F">Tell me what you want. I research it, then build it.</text>
+  <text x="118" y="244" font-family="Segoe UI, sans-serif" font-size="13" fill="#c7cad3">Tell me what you want. I research it, then build it.</text>
 </svg>

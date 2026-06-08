@@ -1,26 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="A second brain — a connected knowledge graph">
-  <rect x="24" y="32" width="352" height="236" rx="16" fill="#16291f"/>
-  <rect x="24" y="32" width="352" height="236" rx="16" fill="none" stroke="#2E5A43" stroke-width="2"/>
-  <text x="200" y="58" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#cdbb7e" letter-spacing="2">YOUR SECOND BRAIN</text>
-  <!-- edges -->
-  <g stroke="#3f6b50" stroke-width="1.5" opacity="0.8">
+  <rect x="24" y="32" width="352" height="236" rx="16" fill="#0e0f14"/>
+  <rect x="24" y="32" width="352" height="236" rx="16" fill="none" stroke="#2a2c34" stroke-width="2"/>
+  <text x="200" y="58" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#ff4d5b" letter-spacing="2">YOUR SECOND BRAIN</text>
+  <g stroke="#3a3d47" stroke-width="1.5" opacity="0.85">
     <line x1="200" y1="150" x2="110" y2="100"/><line x1="200" y1="150" x2="300" y2="96"/>
     <line x1="200" y1="150" x2="96" y2="196"/><line x1="200" y1="150" x2="306" y2="200"/>
     <line x1="200" y1="150" x2="200" y2="232"/><line x1="110" y1="100" x2="300" y2="96"/>
     <line x1="96" y1="196" x2="200" y2="232"/><line x1="306" y1="200" x2="200" y2="232"/>
     <line x1="110" y1="100" x2="96" y2="196"/><line x1="300" y1="96" x2="306" y2="200"/>
   </g>
-  <!-- nodes -->
   <g>
-    <circle cx="110" cy="100" r="9" fill="#2E5A43" stroke="#cdbb7e" stroke-width="1.5"/>
-    <circle cx="300" cy="96" r="9" fill="#2E5A43" stroke="#cdbb7e" stroke-width="1.5"/>
-    <circle cx="96" cy="196" r="9" fill="#2E5A43" stroke="#cdbb7e" stroke-width="1.5"/>
-    <circle cx="306" cy="200" r="9" fill="#2E5A43" stroke="#cdbb7e" stroke-width="1.5"/>
-    <circle cx="200" cy="232" r="9" fill="#2E5A43" stroke="#cdbb7e" stroke-width="1.5"/>
-    <circle cx="200" cy="150" r="16" fill="#e7c97a"/>
-    <circle cx="200" cy="150" r="16" fill="none" stroke="#9c7c2b" stroke-width="2"/>
+    <circle cx="110" cy="100" r="9" fill="#1c1e26" stroke="#ff2233" stroke-width="1.5"/>
+    <circle cx="300" cy="96" r="9" fill="#1c1e26" stroke="#ff2233" stroke-width="1.5"/>
+    <circle cx="96" cy="196" r="9" fill="#1c1e26" stroke="#ff2233" stroke-width="1.5"/>
+    <circle cx="306" cy="200" r="9" fill="#1c1e26" stroke="#ff2233" stroke-width="1.5"/>
+    <circle cx="200" cy="232" r="9" fill="#1c1e26" stroke="#ff2233" stroke-width="1.5"/>
+    <circle cx="200" cy="150" r="16" fill="#ff2233"/>
+    <circle cx="200" cy="150" r="16" fill="none" stroke="#ff4d5b" stroke-width="2"/>
   </g>
-  <g font-family="Segoe UI, sans-serif" font-size="8.5" fill="#aebfb2" text-anchor="middle">
+  <g font-family="Segoe UI, sans-serif" font-size="8.5" fill="#878a95" text-anchor="middle">
     <text x="110" y="84">Documents</text><text x="300" y="80">Decisions</text>
     <text x="96" y="222">Processes</text><text x="306" y="226">Customers</text>
   </g>

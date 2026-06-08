@@ -12,12 +12,24 @@
   /* ---------- nav: scrolled state + progress bar ---------- */
   var nav = document.getElementById("nav");
   var progress = document.getElementById("progress");
+  var heroInner = document.querySelector(".hero__inner");
+  var phGlow = document.querySelector(".page-header__glow");
   function onScroll() {
     var y = window.pageYOffset || document.documentElement.scrollTop;
     if (nav) nav.classList.toggle("scrolled", y > 24);
     if (progress) {
       var h = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+    }
+    if (!reduceMotion) {
+      var vh = window.innerHeight;
+      if (heroInner && y < vh) {
+        heroInner.style.transform = "translateY(" + (y * 0.16).toFixed(1) + "px)";
+        heroInner.style.opacity = Math.max(0, 1 - y / (vh * 0.82)).toFixed(3);
+      }
+      if (phGlow && y < vh) {
+        phGlow.style.transform = "translateY(" + (y * 0.28).toFixed(1) + "px)";
+      }
     }
   }
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -186,21 +198,24 @@
           var dx = a.x - b.x, dy = a.y - b.y;
           var d = Math.sqrt(dx * dx + dy * dy);
           if (d < linkDist) {
-            var alpha = (1 - d / linkDist) * 0.5;
-            ctx.strokeStyle = "rgba(205,187,126," + alpha.toFixed(3) + ")";
+            var alpha = (1 - d / linkDist) * 0.45;
+            ctx.strokeStyle = "rgba(255,34,51," + alpha.toFixed(3) + ")";
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
           }
         }
       }
+      ctx.shadowColor = "rgba(255,34,51,0.85)";
       for (i = 0; i < nodes.length; i++) {
         var p = nodes[i];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(231,201,122,0.85)";
+        ctx.shadowBlur = 9;
+        ctx.fillStyle = "rgba(255,77,91,0.95)";
         ctx.fill();
       }
+      ctx.shadowBlur = 0;
       raf = requestAnimationFrame(frame);
     }
     var resizeTimer;

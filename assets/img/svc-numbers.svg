@@ -1,34 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="A live financial dashboard with charts">
-  <rect x="24" y="36" width="352" height="228" rx="14" fill="#FBF8F1" stroke="#e0d8c6" stroke-width="2"/>
-  <rect x="24" y="36" width="352" height="40" rx="14" fill="#1E3D2F"/>
-  <rect x="24" y="62" width="352" height="14" fill="#1E3D2F"/>
-  <circle cx="44" cy="56" r="4" fill="#cdbb7e"/><circle cx="58" cy="56" r="4" fill="#7f9a8a"/><circle cx="72" cy="56" r="4" fill="#7f9a8a"/>
-  <text x="200" y="60" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#F6F1E6">Revenue · Margins · Trends</text>
-  <!-- KPI cards -->
+  <rect x="24" y="36" width="352" height="228" rx="14" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
+  <rect x="24" y="36" width="352" height="40" rx="14" fill="#0e0f14"/>
+  <rect x="24" y="62" width="352" height="14" fill="#0e0f14"/>
+  <circle cx="44" cy="56" r="4" fill="#ff2233"/><circle cx="58" cy="56" r="4" fill="#3a3d47"/><circle cx="72" cy="56" r="4" fill="#3a3d47"/>
+  <text x="200" y="60" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" fill="#c7cad3">Revenue · Margins · Trends</text>
   <g>
-    <rect x="42" y="92" width="96" height="52" rx="8" fill="#F6F1E6" stroke="#e0d8c6"/>
-    <text x="54" y="112" font-family="Segoe UI, sans-serif" font-size="9" fill="#6b6a5e">REVENUE</text>
-    <text x="54" y="132" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#1E3D2F">$128k</text>
-    <rect x="152" y="92" width="96" height="52" rx="8" fill="#F6F1E6" stroke="#e0d8c6"/>
-    <text x="164" y="112" font-family="Segoe UI, sans-serif" font-size="9" fill="#6b6a5e">MARGIN</text>
-    <text x="164" y="132" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#2E5A43">34%</text>
-    <rect x="262" y="92" width="96" height="52" rx="8" fill="#F6F1E6" stroke="#e0d8c6"/>
-    <text x="274" y="112" font-family="Segoe UI, sans-serif" font-size="9" fill="#6b6a5e">CASH</text>
-    <text x="274" y="132" font-family="Georgia, serif" font-size="18" font-weight="700" fill="#9c7c2b">+12%</text>
+    <rect x="42" y="92" width="96" height="52" rx="8" fill="#1c1e26" stroke="#2a2c34"/>
+    <text x="54" y="112" font-family="Segoe UI, sans-serif" font-size="9" fill="#878a95">REVENUE</text>
+    <text x="54" y="132" font-family="Segoe UI, sans-serif" font-size="18" font-weight="800" fill="#edeef2">$128k</text>
+    <rect x="152" y="92" width="96" height="52" rx="8" fill="#1c1e26" stroke="#2a2c34"/>
+    <text x="164" y="112" font-family="Segoe UI, sans-serif" font-size="9" fill="#878a95">MARGIN</text>
+    <text x="164" y="132" font-family="Segoe UI, sans-serif" font-size="18" font-weight="800" fill="#edeef2">34%</text>
+    <rect x="262" y="92" width="96" height="52" rx="8" fill="#1c1e26" stroke="#2a2c34"/>
+    <text x="274" y="112" font-family="Segoe UI, sans-serif" font-size="9" fill="#878a95">CASH</text>
+    <text x="274" y="132" font-family="Segoe UI, sans-serif" font-size="18" font-weight="800" fill="#ff4d5b">+12%</text>
   </g>
-  <!-- bar + line chart -->
   <g>
-    <rect x="56" y="216" width="20" height="20" rx="3" fill="#2E5A43"/>
-    <rect x="92" y="200" width="20" height="36" rx="3" fill="#2E5A43"/>
-    <rect x="128" y="184" width="20" height="52" rx="3" fill="#2E5A43"/>
-    <rect x="164" y="206" width="20" height="30" rx="3" fill="#2E5A43"/>
-    <rect x="200" y="176" width="20" height="60" rx="3" fill="#1E3D2F"/>
-    <rect x="236" y="190" width="20" height="46" rx="3" fill="#2E5A43"/>
-    <rect x="272" y="166" width="20" height="70" rx="3" fill="#1E3D2F"/>
-    <rect x="308" y="180" width="20" height="56" rx="3" fill="#2E5A43"/>
+    <rect x="56" y="216" width="20" height="20" rx="3" fill="#3a3d47"/>
+    <rect x="92" y="200" width="20" height="36" rx="3" fill="#3a3d47"/>
+    <rect x="128" y="184" width="20" height="52" rx="3" fill="#3a3d47"/>
+    <rect x="164" y="206" width="20" height="30" rx="3" fill="#3a3d47"/>
+    <rect x="200" y="176" width="20" height="60" rx="3" fill="#ff2233"/>
+    <rect x="236" y="190" width="20" height="46" rx="3" fill="#3a3d47"/>
+    <rect x="272" y="166" width="20" height="70" rx="3" fill="#ff2233"/>
+    <rect x="308" y="180" width="20" height="56" rx="3" fill="#3a3d47"/>
   </g>
-  <polyline points="66,206 102,196 138,178 174,198 210,170 246,184 282,160 318,176" fill="none" stroke="#9c7c2b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <g fill="#e7c97a" stroke="#9c7c2b" stroke-width="1.5">
+  <polyline points="66,206 102,196 138,178 174,198 210,170 246,184 282,160 318,176" fill="none" stroke="#ff2233" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#ff4d5b" stroke="#ff2233" stroke-width="1.5">
     <circle cx="66" cy="206" r="3"/><circle cx="138" cy="178" r="3"/><circle cx="210" cy="170" r="3"/><circle cx="282" cy="160" r="3"/><circle cx="318" cy="176" r="3"/>
   </g>
 </svg>
