@@ -1,42 +1,30 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" role="img" aria-label="A robot hand shaking a human hand">
   <rect x="24" y="36" width="352" height="228" rx="16" fill="#15161c" stroke="#2a2c34" stroke-width="2"/>
-  <!-- red glow at the clasp -->
-  <ellipse cx="200" cy="150" rx="70" ry="46" fill="#ff2233" opacity="0.12"/>
+  <ellipse cx="200" cy="150" rx="78" ry="50" fill="#ff2233" opacity="0.14"/>
 
-  <!-- HUMAN side (left): smooth, warm off-white -->
+  <!-- HUMAN side (left): bright off-white -->
   <g>
-    <!-- sleeve / forearm -->
-    <path d="M40 196 L120 150 L150 168 L78 230 Q60 240 48 226 Z" fill="#23252f"/>
-    <path d="M40 196 L120 150 L150 168" fill="none" stroke="#3a3d47" stroke-width="1.5"/>
-    <!-- hand: palm + fingers curling right -->
-    <path d="M118 150 q42 -8 70 16 q8 7 6 17" fill="none" stroke="#d7dae1" stroke-width="20" stroke-linecap="round"/>
-    <!-- thumb -->
-    <path d="M150 130 q26 2 34 22" fill="none" stroke="#d7dae1" stroke-width="13" stroke-linecap="round"/>
-    <!-- knuckle highlights -->
-    <g stroke="#aeb2bd" stroke-width="2" stroke-linecap="round" opacity="0.7">
-      <line x1="176" y1="150" x2="180" y2="158"/><line x1="158" y1="146" x2="161" y2="155"/>
+    <path d="M40 246 L128 150 L160 176 L78 242 Q58 254 44 236 Z" fill="#30333d"/>
+    <path d="M118 150 q48 -10 80 18 q10 8 7 20" fill="none" stroke="#e2e5eb" stroke-width="24" stroke-linecap="round"/>
+    <path d="M154 126 q30 2 40 26" fill="none" stroke="#e2e5eb" stroke-width="15" stroke-linecap="round"/>
+    <g stroke="#b7bcc7" stroke-width="2.4" stroke-linecap="round" opacity="0.8">
+      <line x1="184" y1="150" x2="189" y2="160"/><line x1="162" y1="146" x2="166" y2="156"/>
     </g>
   </g>
 
-  <!-- ROBOT side (right): segmented steel, red joints -->
+  <!-- ROBOT side (right): visible steel + red joints -->
   <g>
-    <!-- sleeve / forearm, segmented -->
-    <path d="M360 196 L280 150 L250 168 L322 230 Q340 240 352 226 Z" fill="#1c1e26"/>
-    <g stroke="#3a3d47" stroke-width="1.5"><line x1="300" y1="178" x2="334" y2="208"/><line x1="284" y1="190" x2="318" y2="220"/></g>
-    <!-- mechanical hand: palm + segmented fingers curling left -->
-    <path d="M282 150 q-42 -8 -70 16 q-8 7 -6 17" fill="none" stroke="#3a3d47" stroke-width="20" stroke-linecap="round"/>
-    <path d="M282 150 q-42 -8 -70 16 q-8 7 -6 17" fill="none" stroke="#23252f" stroke-width="20" stroke-linecap="round" stroke-dasharray="2 12"/>
-    <!-- thumb -->
-    <path d="M250 130 q-26 2 -34 22" fill="none" stroke="#3a3d47" stroke-width="13" stroke-linecap="round"/>
-    <!-- red joints -->
+    <path d="M360 246 L272 150 L240 176 L322 242 Q342 254 356 236 Z" fill="#33363f"/>
+    <g stroke="#5a5e6a" stroke-width="2"><line x1="296" y1="178" x2="332" y2="212"/><line x1="280" y1="190" x2="316" y2="224"/></g>
+    <path d="M282 150 q-48 -10 -80 18 q-10 8 -7 20" fill="none" stroke="#5a5e6a" stroke-width="24" stroke-linecap="round"/>
+    <path d="M282 150 q-48 -10 -80 18 q-10 8 -7 20" fill="none" stroke="#2a2d36" stroke-width="24" stroke-linecap="round" stroke-dasharray="2 15"/>
+    <path d="M246 126 q-30 2 -40 26" fill="none" stroke="#5a5e6a" stroke-width="15" stroke-linecap="round"/>
     <g fill="#ff2233">
-      <circle cx="248" cy="158" r="3.4"/><circle cx="226" cy="160" r="3.4"/><circle cx="212" cy="166" r="3.4"/><circle cx="232" cy="138" r="3"/>
+      <circle cx="250" cy="158" r="3.8"/><circle cx="226" cy="160" r="3.8"/><circle cx="210" cy="168" r="3.8"/><circle cx="230" cy="136" r="3.4"/>
     </g>
-    <!-- wrist bolt -->
-    <circle cx="290" cy="150" r="4" fill="#15161c" stroke="#ff2233" stroke-width="1.5"/>
+    <circle cx="292" cy="150" r="5" fill="#15161c" stroke="#ff2233" stroke-width="1.6"/>
   </g>
 
-  <!-- clasp seam -->
-  <path d="M200 132 V176" stroke="#0e0f14" stroke-width="2" opacity="0.5"/>
-  <text x="200" y="250" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#878a95">You bring the idea. I build it.</text>
+  <path d="M200 130 V178" stroke="#0e0f14" stroke-width="2" opacity="0.45"/>
+  <text x="200" y="244" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#9a9ea8">You bring the idea. I build it.</text>
 </svg>
