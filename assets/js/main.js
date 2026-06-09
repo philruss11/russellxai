@@ -159,6 +159,44 @@
     upd();
   });
 
+  /* ---------- interactive brain (services) ---------- */
+  (function () {
+    var pinsWrap = document.getElementById("brainPins");
+    if (!pinsWrap) return;
+    var data = {
+      numbers:   { lobe: "Prefrontal cortex · judgment", name: "Your numbers, made plain", desc: "The prefrontal cortex weighs decisions. I set up a live dashboard of your revenue, margins, and what is slipping, plus invoice chasing and a fifteen-minute month-end." },
+      advisory:  { lobe: "Frontal lobe · planning", name: "Advisory & special projects", desc: "The frontal lobe plans and decides. You bring me a niche need or a one-off, I research it properly, and I build it for you." },
+      documents: { lobe: "Parietal lobe · processing", name: "Documents & contracts", desc: "The parietal lobe organizes and integrates. Reports, proposals, and contracts described in a sentence and delivered as the real file, read first and flagged before you sign." },
+      marketing: { lobe: "Occipital lobe · vision", name: "Get found online", desc: "The occipital lobe is sight. The SEO work a five thousand dollar a month agency does, run inside your own account, so people actually see you." },
+      inbox:     { lobe: "Temporal lobe · language", name: "Your inbox", desc: "The temporal lobe handles language. Your email read, sorted, and drafted in your own voice. You review and send." },
+      brain:     { lobe: "Hippocampus · memory", name: "A second brain", desc: "The hippocampus is memory. Everything your business knows, organized into one searchable brain your AI keeps current and that gets sharper every week." },
+      setup:     { lobe: "Cerebellum · learning", name: "Set up & taught", desc: "The cerebellum learns through practice. Your own account configured with the approval model on, the right tools installed, and your team taught until it sticks." }
+    };
+    var lobeEl = document.getElementById("brainLobe");
+    var nameEl = document.getElementById("brainName");
+    var descEl = document.getElementById("brainDesc");
+    var linkEl = document.getElementById("brainLink");
+    var pins = Array.prototype.slice.call(pinsWrap.querySelectorAll(".brain-pin"));
+    function select(pin) {
+      var d = data[pin.getAttribute("data-svc")];
+      if (!d) return;
+      pins.forEach(function (p) { p.classList.remove("active"); });
+      pin.classList.add("active");
+      lobeEl.textContent = d.lobe;
+      nameEl.textContent = d.name;
+      descEl.textContent = d.desc;
+      descEl.classList.remove("brain-detail__hint");
+      if (linkEl) linkEl.hidden = false;
+    }
+    pins.forEach(function (pin) {
+      pin.addEventListener("click", function () { select(pin); });
+      pin.addEventListener("mouseenter", function () { select(pin); });
+      pin.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(pin); }
+      });
+    });
+  })();
+
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("navToggle");
   if (toggle && nav) {
