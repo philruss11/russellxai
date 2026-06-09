@@ -130,6 +130,35 @@
     onS();
   })();
 
+  /* ---------- scroll-driven animated text (dim -> bright per char) ---------- */
+  document.querySelectorAll(".animated-text").forEach(function (el) {
+    var text = el.textContent;
+    el.textContent = "";
+    var spans = [];
+    text.split("").forEach(function (c) {
+      var s = document.createElement("span");
+      s.textContent = c;
+      s.style.opacity = "0.2";
+      spans.push(s);
+      el.appendChild(s);
+    });
+    if (reduceMotion) { spans.forEach(function (s) { s.style.opacity = "1"; }); return; }
+    function upd() {
+      var r = el.getBoundingClientRect(), vh = window.innerHeight;
+      var startY = vh * 0.85, endY = vh * 0.25;
+      var p = (startY - r.top) / (startY - endY + r.height);
+      p = Math.max(0, Math.min(1, p));
+      var reveal = p * spans.length;
+      for (var i = 0; i < spans.length; i++) {
+        var d = reveal - i;
+        spans[i].style.opacity = (d >= 1 ? 1 : (d <= 0 ? 0.2 : 0.2 + 0.8 * d)).toFixed(2);
+      }
+    }
+    window.addEventListener("scroll", upd, { passive: true });
+    window.addEventListener("resize", upd);
+    upd();
+  });
+
   /* ---------- mobile menu ---------- */
   var toggle = document.getElementById("navToggle");
   if (toggle && nav) {
