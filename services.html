@@ -65,39 +65,23 @@
     <p class="section-lead reveal" data-delay="2">Each region of the brain maps to a service. Click a marker to see what I'd build for that part of your business.</p>
     <div class="brain-explorer reveal" data-delay="2">
       <div class="brain-stage">
-        <svg class="brain-svg" viewBox="0 0 520 430" role="group" aria-label="Interactive brain diagram">
-          <path class="brain-outline" d="M118 250 C90 214 96 148 154 110 C190 86 244 82 288 96 C326 108 360 104 390 128 C426 156 426 200 398 230 C382 246 356 250 334 248 C306 246 290 262 258 262 C224 262 196 256 168 250 C148 246 132 252 118 250 Z"/>
-          <g class="brain-gyri">
-            <path d="M150 150 C182 130 224 130 256 144"/>
-            <path d="M156 184 C196 166 248 168 296 182"/>
-            <path d="M166 214 C206 200 256 202 306 210"/>
-            <path d="M300 128 C332 118 362 130 384 152"/>
-            <path d="M322 172 C352 166 380 178 392 198"/>
-            <path d="M250 96 C246 150 256 200 250 258"/>
-          </g>
-          <path class="brain-cere" d="M316 254 C342 248 382 252 400 274 C412 290 408 314 384 322 C360 330 330 324 318 304 C312 294 310 266 316 254 Z"/>
-          <g class="brain-gyri">
-            <path d="M326 268 C346 264 374 268 392 280"/>
-            <path d="M324 286 C346 282 374 286 392 296"/>
-            <path d="M328 304 C348 302 372 304 386 310"/>
-          </g>
-          <path class="brain-stem" d="M324 312 C322 338 320 358 330 376 C334 384 344 384 348 376 C354 360 352 338 348 314 Z"/>
-          <g id="brainPins">
-            <g class="brain-pin" data-svc="numbers" transform="translate(168,142)" tabindex="0" role="button" aria-label="Your numbers"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>1</text></g>
-            <g class="brain-pin" data-svc="advisory" transform="translate(150,206)" tabindex="0" role="button" aria-label="Advisory and special projects"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>2</text></g>
-            <g class="brain-pin" data-svc="documents" transform="translate(252,116)" tabindex="0" role="button" aria-label="Documents and contracts"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>3</text></g>
-            <g class="brain-pin" data-svc="marketing" transform="translate(384,168)" tabindex="0" role="button" aria-label="Marketing and getting found"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>4</text></g>
-            <g class="brain-pin" data-svc="inbox" transform="translate(204,236)" tabindex="0" role="button" aria-label="Inbox and communication"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>5</text></g>
-            <g class="brain-pin" data-svc="brain" transform="translate(264,192)" tabindex="0" role="button" aria-label="A second brain"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>6</text></g>
-            <g class="brain-pin" data-svc="setup" transform="translate(360,290)" tabindex="0" role="button" aria-label="Set up and taught"><circle class="hit" r="22"/><circle class="dot" r="13"/><text>7</text></g>
-          </g>
-        </svg>
+        <canvas class="brain-canvas" id="brain3d" role="img" aria-label="A rotating 3D brain with clickable service nodes"></canvas>
+        <span class="brain-hint" aria-hidden="true">drag to spin · click a node</span>
       </div>
       <aside class="brain-detail" id="brainDetail" aria-live="polite">
         <div class="brain-detail__lobe" id="brainLobe">The brain</div>
-        <h3 class="brain-detail__name" id="brainName">Click a region to explore</h3>
-        <p class="brain-detail__desc brain-detail__hint" id="brainDesc">Seven services, mapped to seven parts of the brain. Tap any numbered marker to see what I would set up for that part of your business.</p>
+        <h3 class="brain-detail__name" id="brainName">Pick a part of the brain</h3>
+        <p class="brain-detail__desc brain-detail__hint" id="brainDesc">Seven services, mapped to seven parts of the brain. Click a glowing node on the brain, or choose one below.</p>
         <a class="btn btn--gold" id="brainLink" href="contact.html" hidden>Get this set up <span class="arrow">↗</span></a>
+        <ul class="brain-list" id="brainList">
+          <li><button class="brain-list__item" data-svc="numbers"><b>1</b> Your numbers</button></li>
+          <li><button class="brain-list__item" data-svc="advisory"><b>2</b> Special projects</button></li>
+          <li><button class="brain-list__item" data-svc="documents"><b>3</b> Documents</button></li>
+          <li><button class="brain-list__item" data-svc="marketing"><b>4</b> Get found</button></li>
+          <li><button class="brain-list__item" data-svc="inbox"><b>5</b> Your inbox</button></li>
+          <li><button class="brain-list__item" data-svc="brain"><b>6</b> Second brain</button></li>
+          <li><button class="brain-list__item" data-svc="setup"><b>7</b> Set up &amp; taught</button></li>
+        </ul>
       </aside>
     </div>
   </div>

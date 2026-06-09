@@ -88,6 +88,26 @@
     });
   }
 
+  /* ---------- chrome human follows the cursor ---------- */
+  (function () {
+    var chrome = document.getElementById("heroChrome");
+    if (!chrome || reduceMotion) return;
+    var tx = 0, ty = 0, cx = 0, cy = 0, raf = null;
+    function onMove(e) {
+      var w = window.innerWidth, h = window.innerHeight;
+      cx = ((e.clientX - w / 2) / (w / 2)) * 30;
+      cy = ((e.clientY - h / 2) / (h / 2)) * 22;
+      if (!raf) raf = requestAnimationFrame(apply);
+    }
+    function apply() {
+      raf = null;
+      tx += (cx - tx) * 0.16; ty += (cy - ty) * 0.16;
+      chrome.style.transform = "translate3d(" + tx.toFixed(1) + "px," + ty.toFixed(1) + "px,0) rotateY(" + (tx * 0.4).toFixed(2) + "deg) rotateX(" + (-ty * 0.4).toFixed(2) + "deg)";
+      if (Math.abs(cx - tx) > 0.2 || Math.abs(cy - ty) > 0.2) raf = requestAnimationFrame(apply);
+    }
+    window.addEventListener("pointermove", onMove, { passive: true });
+  })();
+
   /* ---------- scroll-driven marquee ---------- */
   (function () {
     var sec = document.getElementById("marquee");
@@ -159,10 +179,11 @@
     upd();
   });
 
-  /* ---------- interactive brain (services) ---------- */
+  /* ---------- 3D brain (services) ---------- */
   (function () {
-    var pinsWrap = document.getElementById("brainPins");
-    if (!pinsWrap) return;
+    var canvas = document.getElementById("brain3d");
+    if (!canvas || !canvas.getContext) return;
+    var ctx = canvas.getContext("2d");
     var data = {
       numbers:   { lobe: "Prefrontal cortex · judgment", name: "Your numbers, made plain", desc: "The prefrontal cortex weighs decisions. I set up a live dashboard of your revenue, margins, and what is slipping, plus invoice chasing and a fifteen-minute month-end." },
       advisory:  { lobe: "Frontal lobe · planning", name: "Advisory & special projects", desc: "The frontal lobe plans and decides. You bring me a niche need or a one-off, I research it properly, and I build it for you." },
@@ -172,29 +193,92 @@
       brain:     { lobe: "Hippocampus · memory", name: "A second brain", desc: "The hippocampus is memory. Everything your business knows, organized into one searchable brain your AI keeps current and that gets sharper every week." },
       setup:     { lobe: "Cerebellum · learning", name: "Set up & taught", desc: "The cerebellum learns through practice. Your own account configured with the approval model on, the right tools installed, and your team taught until it sticks." }
     };
-    var lobeEl = document.getElementById("brainLobe");
-    var nameEl = document.getElementById("brainName");
-    var descEl = document.getElementById("brainDesc");
-    var linkEl = document.getElementById("brainLink");
-    var pins = Array.prototype.slice.call(pinsWrap.querySelectorAll(".brain-pin"));
-    function select(pin) {
-      var d = data[pin.getAttribute("data-svc")];
-      if (!d) return;
-      pins.forEach(function (p) { p.classList.remove("active"); });
-      pin.classList.add("active");
-      lobeEl.textContent = d.lobe;
-      nameEl.textContent = d.name;
-      descEl.textContent = d.desc;
-      descEl.classList.remove("brain-detail__hint");
-      if (linkEl) linkEl.hidden = false;
+    var nodes = [
+      { svc: "numbers",   p: [-0.05, 0.34, 0.66] },
+      { svc: "advisory",  p: [-0.30, 0.04, 0.62] },
+      { svc: "documents", p: [ 0.18, 0.54, 0.06] },
+      { svc: "marketing", p: [ 0.06, 0.16, -0.72] },
+      { svc: "inbox",     p: [-0.66, -0.18, 0.20] },
+      { svc: "brain",     p: [ 0.10, 0.50, -0.36] },
+      { svc: "setup",     p: [ 0.16, -0.46, -0.50] }
+    ];
+    var pts = [], RX = 0.46, RY = 0.66, RZ = 0.82, off = 0.30, h, i;
+    for (h = 0; h < 2; h++) {
+      var side = h === 0 ? -1 : 1;
+      for (i = 0; i < 175; i++) {
+        var u = Math.random(), v = Math.random();
+        var th = u * Math.PI * 2, ph = Math.acos(2 * v - 1);
+        var sx0 = Math.sin(ph) * Math.cos(th), sy0 = Math.cos(ph), sz0 = Math.sin(ph) * Math.sin(th);
+        var noise = 1 + 0.07 * Math.sin(th * 6) * Math.sin(ph * 5);
+        var x = side * off + sx0 * RX * noise;
+        if (Math.abs(x) < 0.05) continue;
+        pts.push([x, sy0 * RY * noise, sz0 * RZ * noise]);
+      }
     }
-    pins.forEach(function (pin) {
-      pin.addEventListener("click", function () { select(pin); });
-      pin.addEventListener("mouseenter", function () { select(pin); });
-      pin.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); select(pin); }
-      });
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), W = 0, Hh = 0;
+    function resize() { var r = canvas.getBoundingClientRect(); W = r.width; Hh = r.height; canvas.width = W * dpr; canvas.height = Hh * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
+    var rotY = 0.5, rotX = -0.22, autoY = 0.0044, velY = autoY, dragging = false, lastX = 0, lastY = 0, active = null, nodeScreen = [], raf = null;
+    function project(p, ca, sa, cx, sx) {
+      var x = p[0], y = p[1], z = p[2];
+      var x1 = x * ca + z * sa, z1 = -x * sa + z * ca;
+      var y2 = y * cx - z1 * sx, z2 = y * sx + z1 * cx;
+      var focal = 2.4, sc = focal / (focal + z2), radius = Math.min(W, Hh) * 0.36;
+      return { x: W / 2 + x1 * sc * radius, y: Hh / 2 + y2 * sc * radius, z: z2, sc: sc };
+    }
+    function frame() {
+      if (!dragging) { velY += (autoY - velY) * 0.03; rotY += velY; }
+      ctx.clearRect(0, 0, W, Hh);
+      var ca = Math.cos(rotY), sa = Math.sin(rotY), cx = Math.cos(rotX), sx = Math.sin(rotX), s, depth, n;
+      for (i = 0; i < pts.length; i++) {
+        s = project(pts[i], ca, sa, cx, sx);
+        depth = (s.z + 1) / 2;
+        ctx.beginPath(); ctx.arc(s.x, s.y, 0.6 + depth * 1.7, 0, 6.2832);
+        ctx.fillStyle = "rgba(" + (170 + (depth * 60 | 0)) + "," + (44 + (depth * 26 | 0)) + "," + (54 + (depth * 24 | 0)) + "," + (0.14 + depth * 0.6).toFixed(3) + ")";
+        ctx.fill();
+      }
+      nodeScreen = [];
+      for (n = 0; n < nodes.length; n++) {
+        var sN = project(nodes[n].p, ca, sa, cx, sx), df = (sN.z + 1) / 2, isA = active === nodes[n].svc;
+        nodeScreen.push({ svc: nodes[n].svc, x: sN.x, y: sN.y, z: sN.z });
+        ctx.shadowColor = "rgba(255,34,51,0.9)"; ctx.shadowBlur = isA ? 18 : (df > 0.5 ? 10 : 3);
+        ctx.beginPath(); ctx.arc(sN.x, sN.y, (isA ? 9.5 : 6.5) * sN.sc, 0, 6.2832);
+        ctx.fillStyle = (df > 0.32 || isA) ? "rgba(255,42,56," + (0.5 + df * 0.5).toFixed(2) + ")" : "rgba(255,42,56,0.28)";
+        ctx.fill(); ctx.shadowBlur = 0;
+        if (df > 0.42 || isA) {
+          ctx.fillStyle = "#fff"; ctx.font = "700 " + (10.5 * sN.sc).toFixed(1) + "px ui-monospace,Consolas,monospace";
+          ctx.textAlign = "center"; ctx.textBaseline = "middle";
+          ctx.fillText(String(n + 1), sN.x, sN.y + 0.5);
+        }
+      }
+      raf = requestAnimationFrame(frame);
+    }
+    var listItems = Array.prototype.slice.call(document.querySelectorAll(".brain-list__item"));
+    function select(svc) {
+      var d = data[svc]; if (!d) return; active = svc;
+      document.getElementById("brainLobe").textContent = d.lobe;
+      document.getElementById("brainName").textContent = d.name;
+      var desc = document.getElementById("brainDesc"); desc.textContent = d.desc; desc.classList.remove("brain-detail__hint");
+      var link = document.getElementById("brainLink"); if (link) link.hidden = false;
+      listItems.forEach(function (li) { li.classList.toggle("active", li.getAttribute("data-svc") === svc); });
+    }
+    listItems.forEach(function (li) { li.addEventListener("click", function () { select(li.getAttribute("data-svc")); }); });
+    canvas.addEventListener("pointerdown", function (e) { dragging = true; lastX = e.clientX; lastY = e.clientY; if (canvas.setPointerCapture) { try { canvas.setPointerCapture(e.pointerId); } catch (x) {} } });
+    canvas.addEventListener("pointermove", function (e) { if (!dragging) return; var dx = e.clientX - lastX, dy = e.clientY - lastY; lastX = e.clientX; lastY = e.clientY; rotY += dx * 0.008; velY = dx * 0.008; rotX = Math.max(-1.1, Math.min(1.1, rotX + dy * 0.006)); });
+    window.addEventListener("pointerup", function () { dragging = false; });
+    canvas.addEventListener("click", function (e) {
+      var r = canvas.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top, best = null, bd = 20, dist, j;
+      for (j = 0; j < nodeScreen.length; j++) { if (nodeScreen[j].z < -0.15) continue; dist = Math.hypot(nodeScreen[j].x - mx, nodeScreen[j].y - my); if (dist < bd) { bd = dist; best = nodeScreen[j].svc; } }
+      if (best) select(best);
     });
+    if (reduceMotion) { autoY = 0; velY = 0; }
+    resize();
+    window.addEventListener("resize", resize);
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (en) {
+        if (en[0].isIntersecting) { if (!raf) raf = requestAnimationFrame(frame); }
+        else if (raf) { cancelAnimationFrame(raf); raf = null; }
+      }, { threshold: 0 }).observe(canvas);
+    } else { raf = requestAnimationFrame(frame); }
   })();
 
   /* ---------- mobile menu ---------- */

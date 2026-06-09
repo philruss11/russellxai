@@ -219,7 +219,9 @@ p{margin:0 0 1em}
 @keyframes wheel{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
 
 /* minimal hero (RussellxAI + tagline) */
-.hero--min .hero__inner{text-align:center;max-width:1100px;display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2.4vh,26px);padding-top:80px;padding-bottom:40px}
+.hero--min .hero__inner{text-align:center;max-width:1100px;display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.8vh,20px);padding-top:74px;padding-bottom:36px;perspective:1000px}
+.hero__chrome{width:clamp(170px,22vw,300px);will-change:transform;transition:transform .25s ease-out;filter:drop-shadow(0 28px 56px rgba(0,0,0,.65));transform-style:preserve-3d;margin:clamp(-6px,-1vh,-2px) 0}
+.hero__chrome img{width:100%;display:block}
 .hero__brand{font-family:var(--display);font-weight:600;font-size:clamp(4rem,17vw,15rem);line-height:.88;letter-spacing:-.01em;color:#fff}
 .hero__brand .x{color:var(--crimson)}
 .hero__tagline{font-family:var(--display);font-weight:500;font-size:clamp(1.5rem,4.4vw,3rem);color:#ece9e2;letter-spacing:.04em;margin:0}
@@ -388,18 +390,14 @@ p{margin:0 0 1em}
 /* interactive brain explorer (services) */
 .brain-explorer{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(20px,3vw,44px);align-items:center;margin-top:46px}
 .brain-stage{position:relative;background:radial-gradient(circle at 50% 42%,rgba(255,34,51,.07),transparent 62%),#0e0f14;border:1px solid var(--line);border-radius:24px;padding:clamp(14px,2vw,26px)}
-.brain-svg{width:100%;height:auto;display:block;overflow:visible}
-.brain-outline{fill:#16181e;stroke:#3a3d47;stroke-width:2.4}
-.brain-gyri{fill:none;stroke:#2f323b;stroke-width:1.7;stroke-linecap:round}
-.brain-cere{fill:#13151b;stroke:#3a3d47;stroke-width:2}
-.brain-stem{fill:#13151b;stroke:#3a3d47;stroke-width:2}
-.brain-pin{cursor:pointer;outline:none}
-.brain-pin .hit{fill:transparent}
-.brain-pin .dot{fill:#15161c;stroke:var(--red);stroke-width:2.2;transition:fill .2s,filter .2s}
-.brain-pin text{fill:var(--red);font-family:var(--mono);font-size:12px;font-weight:700;text-anchor:middle;dominant-baseline:central;pointer-events:none;transition:fill .2s}
-.brain-pin:hover .dot,.brain-pin.active .dot{fill:var(--red);filter:drop-shadow(0 0 7px var(--red))}
-.brain-pin:hover text,.brain-pin.active text{fill:#fff}
-.brain-pin:focus-visible .dot{stroke:#fff}
+.brain-canvas{width:100%;height:clamp(300px,42vw,460px);display:block;touch-action:none;cursor:grab}
+.brain-canvas:active{cursor:grabbing}
+.brain-hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);pointer-events:none}
+.brain-list{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.brain-list__item{width:100%;text-align:left;display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--ink-soft);font-family:var(--sans);font-size:.86rem;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.brain-list__item b{font-family:var(--mono);color:var(--red);font-size:.8rem}
+.brain-list__item:hover,.brain-list__item.active{border-color:var(--red);color:#fff;background:rgba(255,34,51,.08)}
+@media (max-width:520px){.brain-list{grid-template-columns:1fr}}
 .brain-detail{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,38px);min-height:280px;display:flex;flex-direction:column;justify-content:center}
 .brain-detail__lobe{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--crimson);margin-bottom:14px;min-height:1em}
 .brain-detail__name{font-size:clamp(1.4rem,2.4vw,1.9rem);color:#fff;margin-bottom:12px}

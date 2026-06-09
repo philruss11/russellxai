@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 380" role="img" aria-label="A polished chrome human figure">
+  <defs>
+    <linearGradient id="ch-body" x1="0.1" y1="0" x2="0.9" y2="1">
+      <stop offset="0" stop-color="#fbfdff"/>
+      <stop offset="0.22" stop-color="#cdd3db"/>
+      <stop offset="0.45" stop-color="#9aa1ab"/>
+      <stop offset="0.62" stop-color="#6a7078"/>
+      <stop offset="0.8" stop-color="#aeb5bf"/>
+      <stop offset="1" stop-color="#4a4f57"/>
+    </linearGradient>
+    <linearGradient id="ch-head" x1="0.15" y1="0.05" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.25" stop-color="#d7dce3"/>
+      <stop offset="0.5" stop-color="#9da4ae"/>
+      <stop offset="0.7" stop-color="#727880"/>
+      <stop offset="0.86" stop-color="#b9c0c9"/>
+      <stop offset="1" stop-color="#535860"/>
+    </linearGradient>
+    <radialGradient id="ch-spec" cx="0.34" cy="0.28" r="0.5">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="0.4" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="ch-edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff2233" stop-opacity="0.0"/>
+      <stop offset="1" stop-color="#ff2233" stop-opacity="0.5"/>
+    </linearGradient>
+  </defs>
+
+  <!-- shoulders / bust -->
+  <path d="M40 380 C40 300 84 262 132 254 L188 254 C236 262 280 300 280 380 Z" fill="url(#ch-body)"/>
+  <!-- rim light (red) on right edge -->
+  <path d="M280 380 C280 300 236 262 188 254 L196 262 C238 272 272 306 272 380 Z" fill="url(#ch-edge)"/>
+  <!-- neck -->
+  <path d="M132 232 L132 264 C132 280 188 280 188 264 L188 232 Z" fill="url(#ch-body)"/>
+  <path d="M132 250 C150 262 170 262 188 250 L188 258 C170 270 150 270 132 258 Z" fill="#3f444b" opacity="0.5"/>
+  <!-- head -->
+  <ellipse cx="160" cy="150" rx="74" ry="92" fill="url(#ch-head)"/>
+  <!-- face plane shadow (suggests a face without features) -->
+  <path d="M160 88 C152 122 152 168 160 210 C168 168 168 122 160 88 Z" fill="#6b7178" opacity="0.35"/>
+  <!-- brow / cheek soft shadow -->
+  <ellipse cx="160" cy="150" rx="74" ry="92" fill="url(#ch-spec)"/>
+  <!-- specular streaks -->
+  <path d="M118 104 C130 96 146 96 150 110 C140 118 126 120 118 112 Z" fill="#ffffff" opacity="0.55"/>
+  <path d="M196 188 C206 184 214 188 214 198 C206 204 198 202 194 196 Z" fill="#ffffff" opacity="0.3"/>
+  <!-- crown highlight -->
+  <ellipse cx="146" cy="92" rx="30" ry="14" fill="#ffffff" opacity="0.4"/>
+  <!-- jaw underside shadow (low, under the chin) -->
+  <path d="M132 226 C150 242 170 242 188 226 C174 250 146 250 132 226 Z" fill="#4a4f57" opacity="0.5"/>
+</svg>
